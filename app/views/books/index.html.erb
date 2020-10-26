@@ -2,6 +2,6 @@
 
 <ol class="ml-5">
   <% @books.each do |book| %>
-    <li><%= link_to book.title, book %> was published by <%= link_to book.publisher.name, publisher %></li>
+    <li><%= link_to book.title, @book %> was published by <%= link_to book.publisher.name, book.publisher %></li>
   <% end %>
 </ol>
