@@ -3,10 +3,7 @@
   <div class="column">
     <h2 class="title is-2">Top 10 Books</h2>
     <ol class="ml-5">
-      <% @books.each do |book| %>
-        <li><%= link_to book.title, book %>
-        <em>(<%=  book.publisher.name %>)</em></li>
-      <% end %>
+      <%= render @books %>
     </ol>
     <p class="mt-5">
       <strong><%= link_to '👉 Top 140 BOOKS', books_path %></strong>
@@ -16,12 +13,7 @@
   <div class="column">
   <h2 class="title is-2">Top 10 Publishers</h2>
     <ol class="ml-5">
-      <% @publishers.each do |publisher| %>
-        <li>
-        <%= link_to publisher.name, publisher %>
-        <em>(<%= pluralize publisher.book_count, "Top book" %>)</em>
-        </li>
-      <% end %>
+      <%= render @publishers %>
     </ol>
     <p class="mt-5">
       <strong><%= link_to '👉 Top Publishers', publishers_path%></strong>

@@ -1,10 +1,5 @@
 <h2 class="title is-2">Publishers</h2>
 
 <ol class="ml-5">
-  <% @publishers.each do |publisher| %>
-    <li>
-      <%= link_to publisher.name, publisher %>
-      <em>(<%= pluralize publisher.book_count, "Top book" %>)</em>
-    </li>
-  <% end %>
+  <%= render @publishers %>
 </ol>
