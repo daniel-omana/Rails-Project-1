@@ -1,2 +1,29 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h2 class="title is-2"><%= @book.title %></h2>
+
+
+
+<p>
+  <strong>Rating: </strong>
+  <%= @book.rating %> <progress class="progess is-info" value="<%= @book.rating %>" max=5></progress>
+</p>
+
+<p>
+  <strong>ISBN: </strong>
+  <%= @book.isbn %>
+</p>
+
+<p>
+  <strong>ISBN13: </strong>
+  <%= @book.isbn13 %>
+</p>
+
+<p>
+  <strong>Number of Pages: </strong>
+  <%=@book.number_of_pages %>
+</p>
+
+<p>
+  <strong>Publisher: </strong>
+  <%= link_to @book.publisher.name, @book.publisher %>
+</p>
+

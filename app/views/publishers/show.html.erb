@@ -1,2 +1,17 @@
-<h1>Publishers#show</h1>
-<p>Find me in app/views/publishers/show.html.erb</p>
+<h2  class="title is-2"><%= @publisher.name %></h2>
+
+<p>
+  This publishing company made <%= @publisher.books.count %> of the top 140 books.
+</p>
+
+<h3 class="title is-3 mt-5">Movies Made by <%= @publisher.name %> </h3>
+
+<div class="content">
+  <ul class="mt-5">
+    <% @publisher.books.each do |book|%>
+      <li>
+        <%= link_to book.title, book %>
+      </li>
+    <%end%>
+  </ul>
+</div>
