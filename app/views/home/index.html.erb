@@ -3,7 +3,12 @@
   <div class="column">
     <h2 class="title is-2">Top 10 Books</h2>
     <ol class="ml-5">
-      <%= render @books %>
+      <% @books.each do |book| %>
+        <li>
+          <%= link_to book.title, book %>
+          <em>(<%=  book.publisher.name %>)</em>
+        </li>
+      <% end %>
     </ol>
     <p class="mt-5">
       <strong><%= link_to '👉 Top 140 BOOKS', books_path %></strong>
