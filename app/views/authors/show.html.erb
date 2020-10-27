@@ -1,0 +1,19 @@
+<% content_for(:html_title) { @author.name }%>
+
+<h2  class="title is-2"><%= @author.name %></h2>
+
+<p>
+  This publishing company made <%= @author.books.count %> of the top 140 books.
+</p>
+
+<h3 class="title is-3 mt-5">Movies Made by <%= @author.name %> </h3>
+
+<div class="content">
+  <ul class="mt-5">
+    <% @author.books.each do |book|%>
+      <li>
+        <%= link_to book.title, book %>
+      </li>
+    <%end%>
+  </ul>
+</div>

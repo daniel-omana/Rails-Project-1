@@ -6,5 +6,8 @@ class HomeController < ApplicationController
 
     @publishers = Publisher.ordered_by_books
                            .limit(10)
+
+    @authors = Author.ordered_by_books
+                     .limit(10)
   end
 end
