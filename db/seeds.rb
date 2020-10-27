@@ -3,6 +3,13 @@ require 'csv'
 
 Book.delete_all
 Publisher.delete_all
+Page.delete_all
+
+Page.create(
+  title: 'About US',
+  content: 'BLAH BLAH BLAH BLAH BLAH BLAH',
+  permalink: 'about_us'
+)
 
 csv_data = File.read(Rails.root.join('db/books.csv'))
 books = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
