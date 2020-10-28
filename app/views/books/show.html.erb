@@ -2,3 +2,4 @@
 <% content_for(:html_title) { @book.title }%>
 
 <%= render partial: 'book', object: @book, locals: { show_link: false }%>
+<h2  class="title is-6 has-text-danger" ><%= link_to '👈 Back to list books', books_path%></h2>

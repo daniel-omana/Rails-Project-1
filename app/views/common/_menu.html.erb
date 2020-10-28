@@ -9,6 +9,7 @@
 
       <h3 class="navbar-item"><%= link_to 'Books', books_path%></h3>
 
+
       <div class="navbar-item has-dropdown is-hoverable">
         <a class="navbar-link">
           More
@@ -18,11 +19,8 @@
           <h3 class="navbar-item"><%= link_to 'Books', books_path%></h3>
           <h3 class="navbar-item"><%= link_to 'Authors', authors_path%></h3>
           <h3 class="navbar-item"><%= link_to 'Publishers', publishers_path%></h3>
-          <h3 class="navbar-item"><%= link_to 'Users', users_path%></h3>
           <hr class="navbar-divider">
-          <%# <a class="navbar-item">
-            Report an issue
-          </a> %>
+          <h3 class="navbar-item"><%= link_to 'Users', users_path%></h3>
         </div>
       </div>
     </div>
@@ -31,26 +29,26 @@
       <div class="navbar-item">
         <div class="buttons">
           <%= form_with(url: search_books_path, method: :get, local: true) do %>
-              <div class="field is-grouped mb-5">
-                <div class="control is-expanded">
-                  <%= text_field_tag(:keyword, nil, class: "input is-rounded is-small ", placeholder: 'Search for Books') %>
-                </div>
-                <div class="field mr-2">
-                  <div class="control">
-                    <div class="select is-small is-rounded">
-                      <select>
-                        <option value="search_books_path">Books</option>
-                        <option value="search_publishers_path">Publishers</option>
-                        <option value="search_authors_path">Authors</option>
-                      </select>
-                    </div>
+            <div class="field is-grouped mb-5">
+              <div class="control is-expanded">
+                <%= text_field_tag(:keyword, nil, class: "input is-rounded is-small ", placeholder: 'Search for Books') %>
+              </div>
+              <div class="field mr-2">
+                <div class="control">
+                  <div class="select is-small is-rounded">
+                    <select>
+                      <option value="search_books_path">Books</option>
+                      <option value="search_publishers_path">Publishers</option>
+                      <option value="search_authors_path">Authors</option>
+                    </select>
                   </div>
                 </div>
-                <div class="control">
-                  <%= submit_tag("Search", class: "button is-danger is-small")%>
-                </div>
               </div>
-            <% end %>
+              <div class="control">
+                <%= submit_tag("Search", class: "button is-danger is-small")%>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>

@@ -1,24 +1,46 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Datasets used:
+books.csv - Kaggle.com
+FAKER GEM - https://github.com/faker-ruby/faker
+Nba Player Data Set - https://nba-players.herokuapp.com/
 
-Things you may want to cover:
+Books.csv will be used as the primary source of data to complete the publishers, books, authors, and author_books table.
+FAKER and the NBA data set will primarily be used to to create users, provide an image, assign emails and coordinates.
 
-* Ruby version
+Relationships:
+Data is going to be structured in a way that Book has one Publisher, but Publisher has many books.
+Books may have many authors, and Authors may have many books.
+Books may have many Users, and Users may have many books. In this case Users may have many "Favourite Books"
 
-* System dependencies
+Publisher
+PublisherID: int
+Name: String
 
-* Configuration
+Book
+BookID:       int
+AuthorID:     int
+PublisherID:  int
+title:        string
+isbn:         int
+isbn13:       int
+rating:       decimal
 
-* Database creation
+Author
+AuthorID: int
+Name:     string
 
-* Database initialization
+User
+UserID:  int
+Name:    string
+email:   string
+adress:  string
+picture: string
 
-* How to run the test suite
+FavouriteBook
+BookID: int
+UserID: int
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+BookAuthor
+BookID:   int
+AuthorID: int
