@@ -2,6 +2,8 @@ require 'faker'
 require 'csv'
 
 AuthorBook.delete_all
+FavouriteBook.delete_all
+User.delete_all
 Author.delete_all
 Book.delete_all
 Publisher.delete_all
@@ -44,8 +46,36 @@ books.each do |b|
   end
 end
 
+10.times do
+  player_name = Faker::Sports::Basketball.unique.player
+  first_name = player_name.split(' ')[0]
+  last_name = player_name.split(' ')[1]
+
+  User.create(
+    name: player_name,
+    address: Faker::Address.unique.full_address,
+    email: Faker::Internet.unique.email,
+    picture: "https://nba-players.herokuapp.com/players/#{last_name}/#{first_name}"
+  )
+end
+
+User.all.each do |user|
+  rand(1..4).times do
+    fav_Book = Book.order('RANDOM()').first
+    FavouriteBook.create(user: user, book: fav_Book)
+  end
+end
+
 puts "Created #{Publisher.count} publishers"
 puts "Created #{Book.count} books"
 puts "Created #{Author.count} authors"
 puts "Created #{AuthorBook.count} Book Authors"
-puts Author.all.to_s
+
+User.all.each do |user|
+  puts user.name
+  puts user.address
+  puts user.email
+  puts user.picture
+  puts user.books.map(&:title)
+  puts
+end

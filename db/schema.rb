@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_27_225348) do
+ActiveRecord::Schema.define(version: 2020_10_27_233206) do
 
   create_table "author_books", force: :cascade do |t|
     t.integer "book_id", null: false
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2020_10_27_225348) do
     t.index ["publisher_id"], name: "index_books_on_publisher_id"
   end
 
+  create_table "favourite_books", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "book_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["book_id"], name: "index_favourite_books_on_book_id"
+    t.index ["user_id"], name: "index_favourite_books_on_user_id"
+  end
+
   create_table "pages", force: :cascade do |t|
     t.string "title"
     t.text "content"
@@ -62,9 +71,20 @@ ActiveRecord::Schema.define(version: 2020_10_27_225348) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "address"
+    t.string "picture"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   add_foreign_key "author_books", "authors"
   add_foreign_key "author_books", "books"
   add_foreign_key "book_authors", "Authors"
   add_foreign_key "book_authors", "Books"
   add_foreign_key "books", "publishers"
+  add_foreign_key "favourite_books", "books"
+  add_foreign_key "favourite_books", "users"
 end
