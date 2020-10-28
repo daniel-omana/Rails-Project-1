@@ -1,0 +1,7 @@
+<p class="mb-5">Authors found when searching for: <%= params[:keyword] %></p>
+
+<ul>
+  <% @authors.each do |author| %>
+    <li><%= link_to author.title, author %></li>
+  <% end %>
+</ul>

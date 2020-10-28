@@ -1,6 +1,7 @@
 <% content_for(:html_title) { @publisher.name }%>
 
 <h2  class="title is-2"><%= @publisher.name %></h2>
+<h2  class="title is-6 has-text-danger" ><%= link_to '👈 Back to list of publishers', publishers_path%></h2>
 
 <p>
   This publishing company made <%= @publisher.books.count %> of the top 140 books.

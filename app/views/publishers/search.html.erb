@@ -1,0 +1,7 @@
+<p class="mb-5">Publishers found when searching for: <%= params[:keyword] %></p>
+
+<ul>
+  <% @publishers.each do |publisher| %>
+    <li><%= link_to publisher.name, publisher %></li>
+  <% end %>
+</ul>

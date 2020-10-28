@@ -1,3 +1,6 @@
 <h2  class="title is-2">TOP 140 BOOKS!</h2>
 
 <%= render partial: 'book', collection: @books, locals: { show_link: true } %>
+
+<hr class="mt-6">
+<%= paginate @books %>

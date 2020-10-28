@@ -1,2 +1,41 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<% content_for(:html_title) { @user.name }%>
+
+<h2  class="title is-2"><%= @user.name %></h2>
+<h2  class="title is-6 has-text-danger" ><%= link_to '👈 Back to list Users', users_path%></h2>
+
+<p>
+  <strong>Profile Picture: </strong>
+  <br>
+  <img class = "is-rounded" src="<%= @user.picture %>" alt="Avatar">
+</p>
+
+<p>
+  <strong>Email: </strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Coordinates: </strong>
+  <%= @user.address %>
+</p>
+
+<p>
+  <strong>Map: </strong>
+  <br>
+  <img alt='<%= @user.address %>' src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/<%= @user.address.split(",")[0][0..6] %>,<%= @user.address.split(",")[1][0..6] %>,3,40,59/600x300?access_token=pk.eyJ1IjoiZGFuaWVsb21hbmEiLCJhIjoiY2tmbGlzMjFjMGx4MDJwcDd5cHRncGxtNSJ9.hlrh9229jCBV61k0ez5Vsw' >
+</p>
+
+
+
+
+<h3 class="title is-3 mt-5">Favourite Book(s) </h3>
+
+<div class="content">
+  <ul class="mt-5">
+    <% @user.books.each do |book|%>
+      <li>
+        <%= link_to book.title, book %>
+      </li>
+    <%end%>
+  </ul>
+</div>

@@ -46,23 +46,23 @@ books.each do |b|
   end
 end
 
-10.times do
+20.times do
   player_name = Faker::Sports::Basketball.unique.player
   first_name = player_name.split(' ')[0]
   last_name = player_name.split(' ')[1]
 
   User.create(
     name: player_name,
-    address: Faker::Address.unique.full_address,
+    address: "#{Faker::Address.unique.longitude}, #{Faker::Address.unique.latitude}",
     email: Faker::Internet.unique.email,
     picture: "https://nba-players.herokuapp.com/players/#{last_name}/#{first_name}"
   )
 end
 
 User.all.each do |user|
-  rand(1..4).times do
-    fav_Book = Book.order('RANDOM()').first
-    FavouriteBook.create(user: user, book: fav_Book)
+  rand(1..10).times do
+    fav_book = Book.order('RANDOM()').first
+    FavouriteBook.create(user: user, book: fav_book)
   end
 end
 

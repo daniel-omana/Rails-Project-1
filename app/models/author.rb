@@ -4,6 +4,8 @@ class Author < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
 
+  paginates_per 10
+
   def self.ordered_by_books
     self.select('authors.*')
         .select('COUNT(authors.id) as book_count')
